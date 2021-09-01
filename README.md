@@ -12,7 +12,7 @@
 
 Advisor enables travellers to browse interest points for a particular destination. They can use this application to organise their trip by checking the place rating, popularity, previewing a picture and find the location.
 
-### [> View Technical Specifications Advisor](screenshots/Specifications_Project_Advisor.pdf)
+### [> View Technical Specifications Advisor](https://templars.guru/app/github/react_advisor/Specifications_Project_Advisor.pdff)
 
 ### Project Scope
 

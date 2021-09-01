@@ -12,7 +12,7 @@
 
 Advisor enables travellers to browse interest points for a particular destination. They can use this application to organise their trip by checking the place rating, popularity, previewing a picture and find the location.
 
-### [> View Technical Specifications Advisor](https://templars.guru/app/github/react_advisor/Specifications_Project_Advisor.pdff)
+### [> View Technical Specifications Advisor](https://templars.guru/app/github/react_advisor/Specifications_Project_Advisor.pdf)
 
 ### Project Scope
 
@@ -87,18 +87,18 @@ npm start
 
 ## 4. Project structure<a name="structure"></a>
 
-![Components Screenshot](https://github.com/antoineratat/react_advisor/blob/master/screenshots/Components_Advisor.png?raw=true)
+![Components Screenshot](https://templars.guru/app/github/react_advisor/Components_Advisor.png)
 
 ## 5. Screenshots<a name="screenshots"></a>
 
 Main Result Page
 
-![Components Screenshot](https://github.com/antoineratat/react_advisor/blob/master/screenshots/main_search.PNG?raw=true)
+![Components Screenshot](https://templars.guru/app/github/react_advisor/main_search.PNG)
 
 Quick Search Component
 
-![Components Screenshot](https://github.com/antoineratat/react_advisor/blob/master/screenshots/quick_search_component.PNG?raw=true)
+![Components Screenshot](https://templars.guru/app/github/react_advisor/quick_search_component.PNG)
 
 Weather Component
 
-![Components Screenshot](https://github.com/antoineratat/react_advisor/blob/master/screenshots/weather_component.png?raw=true)
+![Components Screenshot](https://templars.guru/app/github/react_advisor/weather_component.png)

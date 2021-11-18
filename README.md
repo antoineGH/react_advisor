@@ -87,18 +87,18 @@ npm start
 
 ## 4. Project structure<a name="structure"></a>
 
-![Components Screenshot](https://templars.guru/app/github/react_advisor/Components_Advisor.png)
+![Components Screenshot](https://github.com/antoineratat/github_docs/blob/main/react_advisor/Components_Advisor.png?raw=true)
 
 ## 5. Screenshots<a name="screenshots"></a>
 
 Main Result Page
 
-![Components Screenshot](https://templars.guru/app/github/react_advisor/main_search.PNG)
+![Components Screenshot](https://github.com/antoineratat/github_docs/blob/main/react_advisor/main_search.PNG?raw=true)
 
 Quick Search Component
 
-![Components Screenshot](https://templars.guru/app/github/react_advisor/quick_search_component.PNG)
+![Components Screenshot](https://github.com/antoineratat/github_docs/blob/main/react_advisor/quick_search_component.PNG?raw=true)
 
 Weather Component
 
-![Components Screenshot](https://templars.guru/app/github/react_advisor/weather_component.png)
+![Components Screenshot](https://github.com/antoineratat/github_docs/blob/main/react_advisor/weather_component.png?raw=true)

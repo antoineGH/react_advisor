@@ -238,7 +238,7 @@ export default function WeatherContainer({ country, state, latLng, details }) {
                   <Col key={count} xs={6} sm={6} md={6} lg={2} xl={2}>
                     <Card
                       className="special-card ml-md-2 mr-md-2 ml-lg-0 mr-lg-0"
-                      style={{ borderRadius: "5px" }}
+                      style={{ borderRadius: "5px", minHeight: "170px" }}
                     >
                       <Card.Body
                         className="justify-content-center text-center"

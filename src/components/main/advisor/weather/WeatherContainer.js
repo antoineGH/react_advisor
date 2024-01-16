@@ -192,8 +192,8 @@ export default function WeatherContainer({ country, state, latLng, details }) {
                     marginTop: "0rem",
                     textAlign: "left",
                     color: "white",
-                    lineHeight: "2.2rem",
-                    fontSize: ".85rem",
+                    lineHeight: "1.5rem",
+                    fontSize: ".8rem",
                     fontWeight: 500,
                   }}
                 >
@@ -204,8 +204,8 @@ export default function WeatherContainer({ country, state, latLng, details }) {
                   style={{
                     textAlign: "left",
                     color: "white",
-                    lineHeight: "2.2rem",
-                    fontSize: ".85rem",
+                    lineHeight: "1.5rem",
+                    fontSize: ".8rem",
                     fontWeight: 500,
                   }}
                 >
@@ -216,8 +216,8 @@ export default function WeatherContainer({ country, state, latLng, details }) {
                   style={{
                     textAlign: "left",
                     color: "white",
-                    lineHeight: "2.2rem",
-                    fontSize: ".85rem",
+                    lineHeight: "1.5rem",
+                    fontSize: ".8rem",
                     fontWeight: 500,
                   }}
                 >
@@ -229,7 +229,7 @@ export default function WeatherContainer({ country, state, latLng, details }) {
 
           <Col sm={12} xl={8}>
             <Row
-              className="text-center justify-content-sm-center justify-content-xl-end"
+              className="text-center justify-content-sm-center justify-content-xl-end mr-xl-4"
               style={{ display: "flex", margin: "1rem" }}
             >
               {daily.slice(0, 4).map((daycast, count) => {

@@ -505,6 +505,7 @@ a.current {
   background-color: white;
   padding: 5px 0px 15px 0px;
   min-height: 10vh;
+  min-width: 100px;
 }
 
 .card-title {
@@ -528,6 +529,7 @@ a.current {
     padding: 5px 0px 15px 0px;
     min-height: 10vh;
     margin-bottom: 20px;
+    min-width: 100px;
   }
 }
 

@@ -11,7 +11,9 @@ import HotelContainer from "./hotel/HotelContainer";
 import RestaurantContainer from "./restaurant/RestaurantContainer";
 import uniqueCategories from "./utils/uniqueCategories";
 import toTitle from "../utils/toTitle";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import InterestsFilter from "./interest/InterestFilter";
 
 export default function InterestContainer({
   interests,
@@ -23,6 +25,8 @@ export default function InterestContainer({
   const state = interests[0].location.state;
   const country = interests[0].location.country;
   const categories = uniqueCategories(interests);
+
+  console.log();
 
   return (
     <>
@@ -52,17 +56,61 @@ export default function InterestContainer({
           nameURLRating={nameURLRating}
         />
         <br />
-        <CategoryList
-          latLng={latLng}
-          categories={categories}
-          filterCategories={filterCategories}
-          setActiveCategory={setActiveCategory}
-        />
       </Container>
-      <Container fluid>
-        <InterestList interests={interests} nameURLRating={nameURLRating} />
+
+      {/* <Container fluid> */}
+      <Container>
+        <Row>
+          <Col md={12}>
+            <div
+              className="weather_container"
+              style={{ background: "#f2f2f2", opacity: false }}
+            >
+              <Row>
+                <Col md={12} className="text-center justify-content-center">
+                  <Row
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      justifyContent: "space-between",
+                      alignContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Col>
+                      <p
+                        className="hotel_carousel_title"
+                        style={{
+                          justifyContent: "flex-start",
+                          alignItems: "center",
+                          marginLeft: "1rem",
+                          lineHeight: "1",
+                          marginTop: "1rem",
+                          marginBottom: ".7rem",
+                        }}
+                      >
+                        Interests
+                      </p>
+                    </Col>
+                  </Row>
+                  <CategoryList
+                    latLng={latLng}
+                    categories={categories}
+                    filterCategories={filterCategories}
+                    setActiveCategory={setActiveCategory}
+                  />
+                  <InterestList
+                    interests={interests}
+                    nameURLRating={nameURLRating}
+                  />
+                </Col>
+              </Row>
+            </div>
+          </Col>
+        </Row>
       </Container>
-      <Award />
+      {/* </Container> */}
+      {/* <Award /> */}
     </>
   );
 }

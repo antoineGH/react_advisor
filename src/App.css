@@ -286,31 +286,14 @@ p {
 
 /* Category */
 
-.category {
-  filter: invert(1);
-}
-
-.category:hover {
-  filter: invert(0);
+.button_category {
+  transition: all 200ms ease-in-out;
+  cursor: pointer;
 }
 
 .button_category:hover {
-  background-color: black;
-}
-
-.category_active {
-  filter: invert(0);
-  background-color: black;
-}
-
-.category_active:hover {
-  filter: invert(0);
-  background-color: black;
-}
-
-.category_active:focus {
-  box-shadow: none;
-  outline: 0;
+  background: #b1a4a473 !important;
+  padding: 2px 20px;
 }
 
 /* Header Texts */
@@ -664,6 +647,14 @@ a.current {
 .img_award {
   object-fit: contain;
   width: 100%;
+}
+
+.favorite_card {
+  transition: all 200ms ease-in-out;
+}
+
+.favorite_card:hover {
+  background: #b1a4a473 !important;
 }
 
 .img_favorite {

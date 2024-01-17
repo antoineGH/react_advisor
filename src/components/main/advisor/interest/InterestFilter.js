@@ -34,6 +34,7 @@ export default function InterestsFilter() {
   const categoryFilter = [];
 
   useEffect(() => {
+    if (!location) return;
     let mount = true;
     if (_.get(location, "state.latLng")) {
       setLatLng(location.state.latLng);
@@ -72,14 +73,14 @@ export default function InterestsFilter() {
   }, [latLng, location, history, categoryFilter]);
 
   useEffect(() => {
-    if (categories === null) return;
+    if (categories === null || !location) return;
     categories.forEach((category) => {
       if (category.categoryName === myCategory) {
         setActiveCategory(myCategory);
       }
     });
     return () => {};
-  }, [categories, myCategory]);
+  }, [categories, location, myCategory]);
 
   function filterCategories(latLng, category, categoryID) {
     setCategory(category);
@@ -135,7 +136,7 @@ export default function InterestsFilter() {
     }
   }
 
-  if (hasError) {
+  if (hasError || !location) {
     return (
       <>
         <Container>

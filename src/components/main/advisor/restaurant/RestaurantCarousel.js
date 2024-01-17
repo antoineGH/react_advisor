@@ -14,22 +14,21 @@ const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
     items: 3,
-    slidesToSlide: 3, // optional, default to 1.
+    slidesToSlide: 3,
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
     items: 1,
-    slidesToSlide: 2, // optional, default to 1.
+    slidesToSlide: 2,
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
     items: 1,
-    slidesToSlide: 1, // optional, default to 1.
+    slidesToSlide: 1,
   },
 };
 
 const CustomRightArrow = ({ onClick, ...rest }) => {
-  // Customize the left arrow here
   return (
     <Button
       className="carousel_button_prev"
@@ -49,7 +48,6 @@ const CustomRightArrow = ({ onClick, ...rest }) => {
 };
 
 const CustomLeftArrow = ({ onClick, ...rest }) => {
-  // Customize the left arrow here
   return (
     <Button
       className="carousel_button_prev"

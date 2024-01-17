@@ -1,6 +1,5 @@
 import React from "react";
 import BreadCrumb from "../design/BreadCrumb";
-import Award from "../design/Award";
 import ExploreCity from "../design/ExploreCity";
 import Titles from "../design/Titles";
 import Planning from "../design/Planning";
@@ -11,9 +10,7 @@ import HotelContainer from "./hotel/HotelContainer";
 import RestaurantContainer from "./restaurant/RestaurantContainer";
 import uniqueCategories from "./utils/uniqueCategories";
 import toTitle from "../utils/toTitle";
-import { Container, Row, Col, Button } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import InterestsFilter from "./interest/InterestFilter";
+import { Container, Row, Col } from "react-bootstrap";
 
 export default function InterestContainer({
   interests,
@@ -109,8 +106,6 @@ export default function InterestContainer({
           </Col>
         </Row>
       </Container>
-      {/* </Container> */}
-      {/* <Award /> */}
     </>
   );
 }

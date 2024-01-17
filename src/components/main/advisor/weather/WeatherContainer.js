@@ -24,7 +24,6 @@ export default function WeatherContainer({ country, state, latLng, details }) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [current, setCurrent] = useState(null);
   const [daily, setDaily] = useState(null);
-  const [showDetails, setShowDetails] = useState(false);
 
   let city = latLng.city;
 
@@ -32,10 +31,6 @@ export default function WeatherContainer({ country, state, latLng, details }) {
   country ? (country = <span>{country}</span>) : (country = "");
   state ? (state = <span>{state},</span>) : (state = "");
   city ? (city = <span>{toTitle(city)},</span>) : (city = "");
-
-  useEffect(() => {
-    details && setShowDetails(true);
-  }, [details]);
 
   useEffect(() => {
     if (latLng.lat && latLng.lng === undefined) return;
@@ -102,10 +97,10 @@ export default function WeatherContainer({ country, state, latLng, details }) {
           <Col md={12}>
             <div
               className="weather_container_empty"
-              style={{ height: "192px" }}
+              style={{ height: "178px" }}
             >
               <ScaleLoader
-                css="display: flex; justify-content: center; align-items: center; margin-top: 2rem;"
+                css="display: flex; justify-content: center; align-items: center; margin-top: 3rem;"
                 color="white"
                 size={15}
               />
@@ -125,7 +120,7 @@ export default function WeatherContainer({ country, state, latLng, details }) {
             alignItems: "center",
           }}
         >
-          <Col sm={12} xl={4}>
+          <Col sm={12} lg={4}>
             <Row
               style={{
                 display: "flex",
@@ -227,18 +222,30 @@ export default function WeatherContainer({ country, state, latLng, details }) {
             </Row>
           </Col>
 
-          <Col sm={12} xl={8}>
+          <Col sm={12} lg={8}>
             <Row
-              className="text-center justify-content-sm-center justify-content-xl-end mr-xl-4"
+              className="text-center justify-content-sm-center justify-content-lg-end mr-lg-3 mr-xl-4 mb-0 mb-lg-3"
               style={{ display: "flex", margin: "1rem" }}
             >
               {daily.slice(0, 4).map((daycast, count) => {
                 count++;
                 return (
-                  <Col key={count} xs={6} sm={6} md={6} lg={2} xl={2}>
+                  <Col
+                    key={count}
+                    xs={6}
+                    sm={6}
+                    md={6}
+                    lg={3}
+                    xl={3}
+                    className="p-0 p-lg-2"
+                  >
                     <Card
-                      className="special-card ml-md-2 mr-md-2 ml-lg-0 mr-lg-0"
-                      style={{ borderRadius: "5px", minHeight: "170px" }}
+                      className="special-card ml-2 mr-2 ml-lg-0 mr-lg-0"
+                      style={{
+                        borderRadius: "5px",
+                        minHeight: "170px",
+                        boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+                      }}
                     >
                       <Card.Body
                         className="justify-content-center text-center"

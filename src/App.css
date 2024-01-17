@@ -375,7 +375,7 @@ h1 {
 
 .custom-dot-list-style {
   position: absolute;
-  bottom: 0%;
+  bottom: 6.5%;
 }
 
 .button_explore {
@@ -474,6 +474,33 @@ a.current {
   margin-top: -1.5%;
 }
 
+.carousel-container {
+  gap: 1rem;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 0.5rem;
+}
+
+.react-multi-carousel-track {
+  margin-bottom: 1rem;
+}
+
+.carousel-item-margin-10-px {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 1rem;
+}
+
+.carousel_button_prev:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.carousel_button_next:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 .weather_container {
   background-repeat: no-repeat;
   background-size: contain;
@@ -484,6 +511,8 @@ a.current {
   position: relative;
   box-sizing: border-box;
   background-color: #ff5d5d;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .weather_container_empty {

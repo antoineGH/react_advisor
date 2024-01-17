@@ -47,6 +47,7 @@ export default function RestaurantList({ restaurants, city, latLng }) {
             flexDirection: "row",
             justifyContent: "space-between",
             alignContent: "center",
+            alignItems: "center",
           }}
         >
           <Col>
@@ -56,7 +57,9 @@ export default function RestaurantList({ restaurants, city, latLng }) {
                 justifyContent: "flex-start",
                 alignItems: "center",
                 marginLeft: "1rem",
-                marginBottom: "0",
+                lineHeight: "1",
+                marginTop: "1rem",
+                marginBottom: ".7rem",
               }}
             >
               Restaurants
@@ -72,7 +75,7 @@ export default function RestaurantList({ restaurants, city, latLng }) {
           >
             <Button
               variant="link-dark"
-              style={{ borderRadius: "5px", marginBottom: ".5rem" }}
+              style={{ borderRadius: "5px" }}
               onClick={handleClick}
             >
               See All

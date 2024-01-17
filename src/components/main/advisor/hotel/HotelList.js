@@ -47,16 +47,25 @@ export default function HotelList({ hotels, city, latLng }) {
             flexDirection: "row",
             justifyContent: "space-between",
             alignContent: "center",
+            alignItems: "center",
           }}
         >
-          <Col>
+          <Col
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignContent: "center",
+            }}
+          >
             <p
               className="hotel_carousel_title"
               style={{
                 justifyContent: "flex-start",
                 alignItems: "center",
                 marginLeft: "1rem",
-                marginBottom: "0",
+                lineHeight: "1",
+                marginTop: "1rem",
+                marginBottom: ".7rem",
               }}
             >
               Hotels
@@ -72,7 +81,7 @@ export default function HotelList({ hotels, city, latLng }) {
           >
             <Button
               variant="link-dark"
-              style={{ borderRadius: "5px", marginBottom: ".5rem" }}
+              style={{ borderRadius: "5px" }}
               onClick={handleClick}
             >
               See All

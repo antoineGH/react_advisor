@@ -68,7 +68,14 @@ export default function Restaurant({ restaurant }) {
           flexDirection: "column",
         }}
       >
-        <Card.Body style={{ paddingBottom: "0rem", height: "100%" }}>
+        <Card.Body
+          style={{
+            paddingBottom: "0rem",
+            height: "100%",
+            padding: ".7rem",
+            paddingRight: "1rem",
+          }}
+        >
           <Card.Text style={{ paddingBottom: "0rem", height: "100%" }}>
             <Row>
               <Col
@@ -78,9 +85,10 @@ export default function Restaurant({ restaurant }) {
                   justifyContent: "flex-start",
                   fontSize: "1rem",
                   color: "black",
+                  height: "100%",
                   fontWeight: "600",
                   marginBottom: "0.5rem",
-                  lineHeight: "1rem",
+                  lineHeight: "2rem",
                   textAlign: "left",
                   whiteSpace: "nowrap",
                   overflow: "hidden",

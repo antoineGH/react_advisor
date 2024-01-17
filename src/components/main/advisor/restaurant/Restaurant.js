@@ -1,66 +1,226 @@
-import React from 'react'
-import { useHistory } from 'react-router-dom'
+import React from "react";
+import { useHistory } from "react-router-dom";
 
-import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
-import Image from 'react-bootstrap/Image'
+import Card from "react-bootstrap/Card";
+import Image from "react-bootstrap/Image";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { fas } from '@fortawesome/free-solid-svg-icons'
-library.add(fas)
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+import { Col, Row } from "react-bootstrap";
+library.add(fas);
 
 export default function Restaurant({ restaurant }) {
-	const history = useHistory()
+  const history = useHistory();
 
-	// --- Location Information ---
-	const city = restaurant.location.city
-	const formattedAddress = restaurant.location.formattedAddress.join(', ')
+  // --- Location Information ---
+  const city = restaurant.location.city;
+  const address1 = restaurant.location.formattedAddress[0];
+  const address2 =
+    restaurant.location.formattedAddress[1] ||
+    "".concat(" ", restaurant.location.formattedAddress[2] || "");
 
-	// --- Category Information ---
-	const categoryName = restaurant.categories[0].name
-	const categoryIconPrefix = restaurant.categories[0].icon.prefix
-	const categoryIconSuffix = restaurant.categories[0].icon.suffix
-	const categoryIcon = categoryIconPrefix + '32' + categoryIconSuffix
+  // --- Category Information ---
+  const categoryName = restaurant.categories[0].name;
+  const categoryIconPrefix = restaurant.categories[0].icon.prefix;
+  const categoryIconSuffix = restaurant.categories[0].icon.suffix;
+  const categoryIcon = categoryIconPrefix + "32" + categoryIconSuffix;
 
-	// --- getDetails function, triggered with Button onClick => routes to Interest Details ---
-	function getDetails() {
-		history.push({
-			pathname: '/search/' + city.replaceAll(' ', '_').trim().toLowerCase() + '/details/' + restaurant.id,
-			state: {
-				interest: restaurant,
-				count: '',
-				total_count: '',
-				interestNameURLRating: '',
-			},
-		})
-		window.window.scrollTo(0, 0)
-	}
+  // --- getDetails function, triggered with Button onClick => routes to Interest Details ---
+  function getDetails() {
+    history.push({
+      pathname:
+        "/search/" +
+        city.replaceAll(" ", "_").trim().toLowerCase() +
+        "/details/" +
+        restaurant.id,
+      state: {
+        interest: restaurant,
+        count: "",
+        total_count: "",
+        interestNameURLRating: "",
+      },
+    });
+    window.window.scrollTo(0, 0);
+  }
 
-	return (
-		<Card border='light' className='mt-2' style={{ width: '95%', borderRadius: '4px', marginRight: '2.5%', marginLeft: '2.5%', marginBottom: '10%' }}>
-			<Card.Body>
-				<Card.Title className='text-center' style={{ fontWeight: '700', lineHeight: '1.5em', height: '3em' }}>
-					{restaurant.name}
-				</Card.Title>
-				<Card.Text className='subtitles text-center mt-1' style={{ marginBottom: 0 }}>
-					Category
-					<br />
-					<Image style={{ background: '#00aa6c' }} className='mt-1' src={categoryIcon} rounded />
-				</Card.Text>
-				<Card.Text className='text-center' style={{ fontSize: '1rem' }}>
-					{categoryName}
-				</Card.Text>
-				<Card.Text style={{ lineHeight: '1.5em', height: '4.5em' }}>
-					<FontAwesomeIcon size='lg' icon={['fas', 'map-marker-alt']} fixedWidth />
-					<span className='subsubtitles'>Address:</span> <span className='inline-p'>{formattedAddress}.</span>
-				</Card.Text>
-				<Card.Text>
-					<Button block style={{ marginLeft: '10', marginRight: '10' }} onClick={getDetails} className='button_explore mt-2' variant='dark'>
-						Explore
-					</Button>{' '}
-				</Card.Text>
-			</Card.Body>
-		</Card>
-	)
+  return (
+    <div
+      style={{
+        display: "flex",
+        width: "98%",
+        justifyContent: "center",
+        alignItems: "center",
+        marginBottom: "2rem",
+      }}
+    >
+      <Card
+        className="favorite_card"
+        onClick={getDetails}
+        style={{
+          borderRadius: "5px",
+          cursor: "pointer",
+          minHeight: "166px",
+          width: "100%",
+          boxShadow:
+            " rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px",
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        <Card.Body style={{ paddingBottom: "0rem", height: "100%" }}>
+          <Card.Text style={{ paddingBottom: "0rem", height: "100%" }}>
+            <Row>
+              <Col
+                xs={12}
+                style={{
+                  display: "flex",
+                  justifyContent: "flex-start",
+                  fontSize: "1rem",
+                  color: "black",
+                  fontWeight: "600",
+                  marginBottom: "0.5rem",
+                  lineHeight: "1rem",
+                  textAlign: "left",
+                  whiteSpace: "nowrap",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                }}
+              >
+                {restaurant.name}
+              </Col>
+            </Row>
+          </Card.Text>
+          <Card.Footer
+            style={{
+              background: "white",
+              padding: "1rem 0rem",
+              position: "absolute",
+              bottom: 0,
+              left: 0,
+              gap: "1rem",
+              display: "flex",
+              justifyContent: "space-between",
+              flexDirection: "column",
+              width: "100%",
+            }}
+          >
+            <Row
+              style={{
+                margin: "auto",
+                width: "100%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "flex-start",
+                paddingLeft: "0.5rem",
+              }}
+            >
+              <Col
+                xs={1}
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <Image
+                  src={categoryIcon}
+                  style={{
+                    width: "24px",
+                    height: "24px",
+                    background: "#00aa6c",
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                  rounded
+                />
+              </Col>
+              <Col
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "flex-start",
+                  alignContent: "center",
+                  fontFamily: "poppinsregular",
+                  color: "#474747",
+                  fontSize: "0.85rem",
+                  paddingLeft: "0.5rem",
+                }}
+              >
+                {categoryName}
+              </Col>
+            </Row>
+
+            <Row
+              style={{
+                margin: "auto",
+                width: "100%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                paddingLeft: "0.5rem",
+              }}
+            >
+              <Col
+                xs={1}
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <FontAwesomeIcon
+                  icon={["fas", "map-marker-alt"]}
+                  style={{ width: "24px", height: "24px" }}
+                  fixedWidth
+                />
+              </Col>
+              <Col
+                style={{
+                  display: "flex",
+                  justifyContent: "flex-start",
+                  alignContent: "center",
+                }}
+              >
+                <Row style={{ width: "100%" }}>
+                  <Col
+                    xs={12}
+                    style={{
+                      display: "flex",
+                      justifyContent: "flex-start",
+                      textAlign: "left",
+                      fontFamily: "poppinsregular",
+                      color: "#474747",
+                      fontSize: "0.85rem",
+                      whiteSpace: "nowrap",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                      paddingLeft: "0.5rem",
+                    }}
+                  >
+                    {address1}
+                  </Col>
+                  <Col
+                    xs={12}
+                    style={{
+                      textAlign: "left",
+                      fontFamily: "poppinsregular",
+                      color: "#474747",
+                      fontSize: "0.85rem",
+                      whiteSpace: "nowrap",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                      paddingLeft: "0.5rem",
+                    }}
+                  >
+                    {address2}
+                  </Col>
+                </Row>
+              </Col>
+            </Row>
+          </Card.Footer>
+        </Card.Body>
+      </Card>
+    </div>
+  );
 }

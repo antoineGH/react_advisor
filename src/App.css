@@ -634,21 +634,6 @@ a.current {
   width: 100%;
 }
 
-.award {
-  background: #004f32;
-}
-
-.title_award {
-  width: 100%;
-  font-size: 2.1rem;
-  line-height: 48px;
-}
-
-.img_award {
-  object-fit: contain;
-  width: 100%;
-}
-
 .favorite_card {
   transition: all 200ms ease-in-out;
 }

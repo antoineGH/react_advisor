@@ -59,16 +59,20 @@ export default function Navigation() {
           style={{ paddingRight: 0, paddingLeft: 0 }}
         >
           <Row style={{ width: "100%" }}>
-            <Col md={12} className="text-left justify-content-left">
+            <Col
+              md={12}
+              className="text-left justify-content-left"
+              style={{ padding: 0 }}
+            >
               <Navbar.Brand
                 href="/"
                 style={{ maxHeight: "5vh", maxWidth: "15vh" }}
               >
                 <img
-                  className="img_map_city"
                   src={HorizontalLogo}
                   alt="logo-explorer"
-                  width="50%"
+                  width="70%"
+                  height="70%"
                 />
               </Navbar.Brand>
             </Col>

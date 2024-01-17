@@ -4,7 +4,6 @@ import fetchInterestCategory from "../utils/fetchInterestCategory";
 import BreadCrumb from "../../design/BreadCrumb";
 import CategoryList from "../category/CategoryList";
 import InterestList from "./InterestList";
-import Award from "../../design/Award";
 import uniqueCategories from "../utils/uniqueCategories";
 import toTitle from "../../utils/toTitle";
 import ScaleLoader from "react-spinners/ScaleLoader";
@@ -207,7 +206,6 @@ export default function InterestsFilter() {
         <Container fluid>
           {moreInterests && <InterestList interests={moreInterests} />}
         </Container>
-        <Award />
       </>
     );
   }

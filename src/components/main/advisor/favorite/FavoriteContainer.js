@@ -27,12 +27,12 @@ export default function FavoriteContainer() {
   ];
 
   return (
-    <Container style={{ padding: 0 }}>
+    <Container style={{ paddingLeft: "1.75rem" }}>
       <Row>
-        <Col md={12}>
+        <Col md={12} style={{ padding: 0 }}>
           <div
             className="weather_container"
-            style={{ background: "#f2f2f2", opacity: false }}
+            style={{ background: "#f2f2f2", opacity: false, width: "100%" }}
           >
             <FavoriteList favorites={listFavorite} />
           </div>

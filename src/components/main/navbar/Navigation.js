@@ -50,7 +50,7 @@ export default function Navigation() {
 
   return (
     <>
-      <Container>
+      <Container style={{ padding: "1rem" }}>
         <Navbar
           bg="light"
           variant="light"
@@ -71,8 +71,8 @@ export default function Navigation() {
                 <img
                   src={HorizontalLogo}
                   alt="logo-explorer"
-                  width="70%"
-                  height="70%"
+                  width="65%"
+                  height="65%"
                 />
               </Navbar.Brand>
             </Col>

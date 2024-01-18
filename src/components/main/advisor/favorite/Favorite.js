@@ -2,7 +2,6 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -32,23 +31,28 @@ export default function Favorite({ favorite }) {
     <div
       style={{
         display: "flex",
-        width: "95%",
+        width: "98%",
         justifyContent: "center",
         alignItems: "center",
-        paddingRight: ".3rem",
-        marginBottom: "3rem",
+        marginBottom: "2rem",
       }}
     >
       <Card
+        onClick={getDetails}
+        id="favorite_card"
         className="favorite_card"
         style={{
-          width: "100%",
           borderRadius: "5px",
-          minHeight: "320px",
-          boxShadow: "rgba(0, 0, 0, 0.15) 0px 3px 3px 0px",
+          cursor: "pointer",
+          minHeight: "166px",
+          width: "100%",
+          boxShadow:
+            " rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px",
+          display: "flex",
+          flexDirection: "column",
         }}
       >
-        <Card.Body style={{ padding: ".5rem", margin: "1rem" }}>
+        <Card.Body style={{ padding: "1rem" }}>
           <Card.Title
             className="text-center"
             style={{
@@ -78,7 +82,7 @@ export default function Favorite({ favorite }) {
                   height: "160px",
                   width: "100%",
                   objectFit: "fill",
-                  borderRadius: "5px",
+                  borderRadius: "3px",
                 }}
                 src={favorite.url}
                 className="img_favorite"
@@ -99,26 +103,6 @@ export default function Favorite({ favorite }) {
                 </span>
               </div>
             </div>
-            <Card.Text>
-              <Button
-                block
-                style={{
-                  marginLeft: "10",
-                  marginRight: "10",
-                  borderRadius: "4px",
-                  fontSize: "1rem",
-                  fontFamily: "poppinsregular",
-                  fontWeight: "500",
-                  lineHeight: "1.6em",
-                  marginTop: "auto",
-                }}
-                onClick={getDetails}
-                className="button_explore mt-2"
-                variant="dark"
-              >
-                Explore
-              </Button>
-            </Card.Text>
           </div>
         </Card.Body>
       </Card>

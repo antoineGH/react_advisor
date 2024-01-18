@@ -10,13 +10,33 @@ import Col from "react-bootstrap/Col";
 export default function FavoriteList({ favorites }) {
   return (
     <Row>
-      <Col md={12}>
-        <p
-          className="hotel_carousel_title text-left ml-3"
-          style={{ marginBottom: ".7rem" }}
+      <Col md={12} className="text-center justify-content-center">
+        <Row
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignContent: "center",
+            alignItems: "center",
+          }}
         >
-          Destinations travelers love
-        </p>
+          <Col>
+            <p
+              className="hotel_carousel_title"
+              style={{
+                justifyContent: "flex-start",
+                alignItems: "center",
+                marginLeft: "1rem",
+                lineHeight: "1",
+                marginTop: "1rem",
+                marginBottom: ".7rem",
+              }}
+            >
+              Destination Travelers Love
+            </p>
+          </Col>
+        </Row>
+
         <FavoriteCarousel favorites={favorites} />
       </Col>
     </Row>

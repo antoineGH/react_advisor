@@ -4,6 +4,11 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 import Favorite from "./Favorite";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+import { Button } from "react-bootstrap";
+library.add(fas);
 
 const responsive = {
   desktop: {
@@ -23,31 +28,68 @@ const responsive = {
   },
 };
 
+const CustomRightArrow = ({ onClick, ...rest }) => {
+  return (
+    <Button
+      className="carousel_button_prev"
+      onClick={() => onClick()}
+      size="xs"
+      variant="outline"
+      style={{
+        position: "absolute",
+        right: "43%",
+        bottom: "1.5%",
+        zIndex: "10",
+      }}
+    >
+      <FontAwesomeIcon size="2x" style={{}} icon={["fas", "angle-right"]} />
+    </Button>
+  );
+};
+
+const CustomLeftArrow = ({ onClick, ...rest }) => {
+  return (
+    <Button
+      className="carousel_button_prev"
+      onClick={() => onClick()}
+      size="xs"
+      variant="outline"
+      style={{
+        position: "absolute",
+        left: "43%",
+        bottom: "1.5%",
+        zIndex: "10",
+      }}
+    >
+      <FontAwesomeIcon size="2x" style={{}} icon={["fas", "angle-left"]} />
+    </Button>
+  );
+};
+
 export default function FavoriteCarousel({ favorites }) {
   return (
     <div
       style={{
-        marginLeft: "1rem",
-        marginRight: "1em",
-        width: "100%",
-        maxWidth: "1095px",
+        padding: "0rem 0.8rem",
       }}
     >
       <Carousel
         swipeable={true}
         draggable={false}
         showDots={true}
-        arrows={false}
         responsive={responsive}
         ssr={true}
         infinite={true}
+        autoPlaySpeed={1000}
         keyBoardControl={true}
         customTransition="all .5"
         transitionDuration={500}
-        partialVisible={false}
         containerClass="carousel-container"
+        removeArrowOnDeviceType={["tablet", "mobile"]}
         dotListClass="custom-dot-list-style"
-        itemClass="carousel-item-padding-40-px"
+        itemClass="carousel-item-padding-40-px carousel-item-margin-10-px"
+        customRightArrow={<CustomRightArrow />}
+        customLeftArrow={<CustomLeftArrow />}
       >
         {favorites.map((favorite) => {
           return <Favorite key={favorite.city} favorite={favorite} />;

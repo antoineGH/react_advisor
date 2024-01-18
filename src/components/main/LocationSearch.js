@@ -93,6 +93,8 @@ export default class LocationSearch extends Component {
                             cursor: "pointer",
                             paddingLeft: "9px",
                             paddingRight: "9px",
+                            paddingTop: ".5rem",
+                            paddingBottom: ".5rem",
                           }
                         : {
                             backgroundColor: "#ffffff",

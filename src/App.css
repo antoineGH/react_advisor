@@ -571,7 +571,7 @@ a.current {
   margin-top: -4%;
   display: flex;
   justify-content: flex-start;
-  flex-direction: row;
+  flex-direction: column;
   text-align: left;
   width: 100%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);

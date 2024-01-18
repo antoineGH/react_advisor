@@ -88,7 +88,7 @@ export default class LocationSearch extends Component {
                         : "suggestion-item";
                       const style = suggestion.active
                         ? {
-                            backgroundColor: "#00AA6C",
+                            backgroundColor: "rgb(239 146 146)",
                             color: "white",
                             cursor: "pointer",
                             paddingLeft: "9px",
@@ -99,6 +99,8 @@ export default class LocationSearch extends Component {
                             cursor: "pointer",
                             paddingLeft: "9px",
                             paddingRight: "9px",
+                            paddingTop: ".5rem",
+                            paddingBottom: ".5rem",
                           };
                       return (
                         <div key={key}>

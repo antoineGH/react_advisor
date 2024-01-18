@@ -571,6 +571,7 @@ a.current {
   margin-top: -4%;
   display: flex;
   justify-content: flex-start;
+  flex-direction: row;
   align-items: center;
   text-align: left;
   width: 100%;

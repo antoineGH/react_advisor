@@ -80,8 +80,7 @@ export default function Favorite({ favorite }) {
                 onClick={getDetails}
                 style={{
                   height: "160px",
-                  width: "100%",
-                  objectFit: "fill",
+                  objectFit: "cover",
                   borderRadius: "3px",
                 }}
                 src={favorite.url}

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useHistory, useParams } from "react-router-dom";
 import fetchInterestCategory from "../utils/fetchInterestCategory";
-import BreadCrumb from "../../design/BreadCrumb";
 import CategoryList from "../category/CategoryList";
 import InterestList from "./InterestList";
 import uniqueCategories from "../utils/uniqueCategories";
@@ -22,17 +21,15 @@ export default function InterestsFilter() {
   const [latLng, setLatLng] = useState(null);
   const [interests, setInterests] = useState(null);
   const [category, setCategory] = useState(null);
-  const [state, setState] = useState(null);
-  const [country, setCountry] = useState(null);
   const [categories, setCategories] = useState(null);
+  const [categoryFilter, setCategoryFilter] = useState([]);
 
   let myCategory = useParams().category;
   const history = useHistory();
   let location = useLocation();
 
-  const categoryFilter = [];
-
   useEffect(() => {
+    console.log("InterestsFilter useEffect 1");
     if (!location) return;
     let mount = true;
     if (_.get(location, "state.latLng")) {
@@ -40,14 +37,16 @@ export default function InterestsFilter() {
       setInterests(location.state.interests);
       setCategory(location.state.category);
       setActiveCategory(location.state.category);
-      setState(location.state.interests[0].location.state);
-      setCountry(location.state.interests[0].location.country);
       setCategories(uniqueCategories(location.state.interests));
 
-      location.state.interests.forEach((interest) => {
-        if (interest.categories[0].name === location.state.category) {
-          categoryFilter.push(interest);
-        }
+      setCategoryFilter((prevCategoryFilter) => {
+        return [
+          ...prevCategoryFilter,
+          ...location.state.interests.filter(
+            (interest) =>
+              interest.categories[0].name === location.state.category
+          ),
+        ];
       });
 
       fetchInterestCategory(location.state.latLng, location.state.categoryID, 5)
@@ -69,9 +68,10 @@ export default function InterestsFilter() {
     return () => {
       mount = false;
     };
-  }, [latLng, location, history, categoryFilter]);
+  }, [latLng, location, history]);
 
   useEffect(() => {
+    console.log("InterestsFilter useEffect 2");
     if (categories === null || !location) return;
     categories.forEach((category) => {
       if (category.categoryName === myCategory) {
@@ -105,8 +105,6 @@ export default function InterestsFilter() {
       setLatLng(location.state.latLng);
       setInterests(location.state.interests);
       setCategory(location.state.category);
-      setState(location.state.interests[0].location.state);
-      setCountry(location.state.interests[0].location.country);
       setCategories(uniqueCategories(interests));
 
       location.state.interests.forEach((interest) => {
@@ -138,15 +136,6 @@ export default function InterestsFilter() {
   if (hasError || !location) {
     return (
       <>
-        <Container>
-          {_.get(location, "state.latLng") && (
-            <BreadCrumb country={country} state={state} latLng={latLng} />
-          )}
-          <br />
-          {category && (
-            <p className="hotel_carousel_title">{toTitle(category)}</p>
-          )}
-        </Container>
         <Row className="text-center">
           <Col>
             <p>
@@ -165,46 +154,110 @@ export default function InterestsFilter() {
 
   if (!isLoaded) {
     return (
-      <>
-        <Container>
-          {_.get(location, "state.latLng") && (
-            <BreadCrumb country={country} state={state} latLng={latLng} />
-          )}
-          <br />
-          {category && (
-            <p className="hotel_carousel_title">{toTitle(category)}</p>
-          )}
-        </Container>
-        <Row>
-          <Col md={12}>
-            <div className="weather_container_empty">
-              <ScaleLoader
-                css="display: flex; justify-content: center;"
-                color={"#2E3030"}
-                size={15}
-              />
-            </div>
-          </Col>
-        </Row>
-      </>
+      <Row>
+        <Col md={12}>
+          <div className="weather_container_empty">
+            <ScaleLoader
+              css="display: flex; justify-content: center;"
+              color={"#2E3030"}
+              size={15}
+            />
+          </div>
+        </Col>
+      </Row>
     );
   } else {
     return (
       <>
         <Container>
-          <BreadCrumb country={country} state={state} latLng={latLng} />
-          <br />
-          <p className="hotel_carousel_title">{toTitle(category)}</p>
-          <CategoryList
-            latLng={latLng}
-            categories={categories}
-            filterCategories={filterCategories}
-            activeCategory={activeCategory}
-            setActiveCategory={setActiveCategory}
-          />
+          <Row>
+            <Col md={12}>
+              <div
+                className="weather_container"
+                style={{ background: "#f2f2f2", opacity: false }}
+              >
+                <Row>
+                  <Col md={12} className="text-center justify-content-center">
+                    <Row
+                      style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        justifyContent: "space-between",
+                        alignContent: "center",
+                        alignItems: "center",
+                      }}
+                    >
+                      <Col>
+                        <p
+                          className="hotel_carousel_title"
+                          style={{
+                            justifyContent: "flex-start",
+                            alignItems: "center",
+                            marginLeft: "1rem",
+                            lineHeight: "1",
+                            marginTop: "1rem",
+                            marginBottom: ".7rem",
+                          }}
+                        >
+                          {toTitle(category)}
+                        </p>
+                      </Col>
+                    </Row>
+
+                    <InterestList interests={moreInterests} />
+                  </Col>
+                </Row>
+              </div>
+            </Col>
+          </Row>
         </Container>
-        <Container fluid>
-          {moreInterests && <InterestList interests={moreInterests} />}
+        <Container>
+          <Row>
+            <Col md={12}>
+              <div
+                className="weather_container"
+                style={{ background: "#f2f2f2", opacity: false }}
+              >
+                <Row>
+                  <Col md={12} className="text-center justify-content-center">
+                    <Row
+                      style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        justifyContent: "space-between",
+                        alignContent: "center",
+                        alignItems: "center",
+                      }}
+                    >
+                      <Col>
+                        <p
+                          className="hotel_carousel_title"
+                          style={{
+                            justifyContent: "flex-start",
+                            alignItems: "center",
+                            marginLeft: "1rem",
+                            lineHeight: "1",
+                            marginTop: "1rem",
+                            marginBottom: "1rem",
+                          }}
+                        >
+                          Or maybe something else?
+                        </p>
+                      </Col>
+                    </Row>
+
+                    <CategoryList
+                      latLng={latLng}
+                      categories={categories}
+                      filterCategories={filterCategories}
+                      activeCategory={activeCategory}
+                      setActiveCategory={setActiveCategory}
+                    />
+                  </Col>
+                </Row>
+              </div>
+            </Col>
+          </Row>
         </Container>
       </>
     );

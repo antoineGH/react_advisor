@@ -23,6 +23,7 @@ export default function InterestDetails() {
   const [categoryName, setCategoryName] = useState(null);
 
   useEffect(() => {
+    console.log("InterestDetails useEffect");
     if (_.get(location, "state.interest")) {
       setInterest(location.state.interest);
       setName(location.state.interest.name);

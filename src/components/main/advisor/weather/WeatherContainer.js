@@ -33,6 +33,7 @@ export default function WeatherContainer({ country, state, latLng, details }) {
   city ? (city = <span>{toTitle(city)},</span>) : (city = "");
 
   useEffect(() => {
+    console.log("WeatherContainer useEffect");
     if (latLng.lat && latLng.lng === undefined) return;
     const lat = latLng.lat;
     const lng = latLng.lng;

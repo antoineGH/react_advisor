@@ -18,8 +18,8 @@ library.add(fas);
 export default function RestaurantList({ restaurants, city, latLng }) {
   const history = useHistory();
 
-  const category = restaurants[1].categories[0].name;
-  const categoryID = restaurants[1].categories[0].id;
+  const category = "Restaurants";
+  const categoryID = "4bf58dd8d48988d1c4941735";
   const nameURLRating = "";
 
   function handleClick() {

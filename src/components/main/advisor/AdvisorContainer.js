@@ -23,8 +23,6 @@ export default function InterestContainer({
   const country = interests[0].location.country;
   const categories = uniqueCategories(interests);
 
-  console.log();
-
   return (
     <>
       <Container>

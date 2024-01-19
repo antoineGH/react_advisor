@@ -30,7 +30,6 @@ export default function HotelContainer({ latLng, city }) {
 
   // Get Hotels from Foursquare API + Update State
   useEffect(() => {
-    console.log("HotelContainer useEffect");
     if (latLng === undefined) return;
 
     fetchInterestCategory(latLng, hotelCategoryId, limit)

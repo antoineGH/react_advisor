@@ -24,7 +24,6 @@ export default function InterestDetails() {
 
   useEffect(() => {
     if (_.get(location, "state.interest")) {
-      console.log("location", location);
       setInterest(location.state.interest);
       setName(location.state.interest.name);
       setLat(location.state.interest.location.lat);

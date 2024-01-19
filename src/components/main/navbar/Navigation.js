@@ -65,7 +65,7 @@ export default function Navigation() {
               style={{ padding: 0 }}
             >
               <Navbar.Brand
-                href="/"
+                onClick={() => history.push("/")}
                 style={{ maxHeight: "5vh", maxWidth: "15vh" }}
               >
                 <img

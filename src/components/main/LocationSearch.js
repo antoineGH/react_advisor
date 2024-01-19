@@ -31,6 +31,7 @@ export default class LocationSearch extends Component {
         this.updateState(latLng);
         this.setState({ address: fullAddress, isDisabled: false });
         this.inputRef.current.value = fullAddress;
+        this.props.handleClick();
       })
       .catch((error) => console.error("Error", error));
   };

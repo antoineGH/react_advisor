@@ -66,7 +66,11 @@ export default function Navigation() {
             >
               <Navbar.Brand
                 onClick={() => history.push("/")}
-                style={{ maxHeight: "5vh", maxWidth: "15vh" }}
+                style={{
+                  maxHeight: "5vh",
+                  maxWidth: "15vh",
+                  cursor: "pointer",
+                }}
               >
                 <img
                   src={HorizontalLogo}

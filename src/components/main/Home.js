@@ -26,23 +26,11 @@ export default function Home() {
         position: "relative",
         minHeight: "87vh",
         backgroundImage: `url(${backgroundSVG})`,
+        zIndex: 0,
       }}
     >
       <FavoriteContainer />
-      <img
-        id="hero"
-        src={heroSVG}
-        alt="hero"
-        style={{
-          position: "absolute",
-          zIndex: "0",
-          height: "50%",
-          width: "100%",
-          objectFit: "contain",
-          bottom: 0,
-          left: 0,
-        }}
-      />
+      <img id="hero" src={heroSVG} alt="hero" />
     </div>
   );
 }

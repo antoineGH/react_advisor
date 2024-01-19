@@ -35,12 +35,6 @@ const CustomRightArrow = ({ onClick, ...rest }) => {
       onClick={() => onClick()}
       size="xs"
       variant="outline"
-      style={{
-        position: "absolute",
-        right: "43%",
-        bottom: "0%",
-        zIndex: "10",
-      }}
     >
       <FontAwesomeIcon size="2x" style={{}} icon={["fas", "angle-right"]} />
     </Button>
@@ -51,16 +45,10 @@ const CustomLeftArrow = ({ onClick, ...rest }) => {
   // Customize the left arrow here
   return (
     <Button
-      className="carousel_button_prev"
+      className="carousel_button_next"
       onClick={() => onClick()}
       size="xs"
       variant="outline"
-      style={{
-        position: "absolute",
-        left: "43%",
-        bottom: "0%",
-        zIndex: "10",
-      }}
     >
       <FontAwesomeIcon size="2x" style={{}} icon={["fas", "angle-left"]} />
     </Button>

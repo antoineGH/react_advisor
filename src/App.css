@@ -182,6 +182,49 @@ p {
 
 /* Home Hero Banner */
 
+#hero {
+  position: absolute;
+  height: 50%;
+  width: 100%;
+  object-fit: contain;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  #hero {
+    display: block;
+  }
+}
+
+.carousel_button_prev {
+  position: absolute;
+  right: 0%;
+  bottom: 0.4%;
+  z-index: 10;
+}
+
+@media (min-width: 1024px) {
+  .carousel_button_prev {
+    right: 43%;
+  }
+}
+
+.carousel_button_next {
+  position: absolute;
+  left: 0%;
+  bottom: 0.4%;
+  z-index: 10;
+}
+
+@media (min-width: 1024px) {
+  .carousel_button_next {
+    left: 43%;
+  }
+}
+
 .home_hero {
   background: rgb(201, 242, 227);
   background: linear-gradient(
@@ -203,6 +246,7 @@ p {
   position: relative;
   box-sizing: border-box;
   max-height: 10vh;
+  z-index: -1;
 }
 
 .home_hero_img {
@@ -213,6 +257,7 @@ p {
   width: 90%;
   margin-left: 47.5%;
   margin-top: -5%;
+  z-index: 0;
 }
 
 /* Planning Banner */

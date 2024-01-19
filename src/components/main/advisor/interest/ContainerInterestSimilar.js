@@ -11,7 +11,6 @@ export default function ContainerInterestSimilar(props) {
   const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
-    console.log("ContainerInterestSimilar useEffect");
     let mount = true;
     fetchSimilar(interest.id)
       .then((response) => {

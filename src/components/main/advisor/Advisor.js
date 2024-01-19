@@ -21,7 +21,6 @@ export default function Advisor() {
 
   // Get Interests from Foursquare API + Update State
   useEffect(() => {
-    console.log("Advisor useEffect");
     let mount = true;
     if (_.get(location, "state.latLng")) {
       setLatLng(location.state.latLng);

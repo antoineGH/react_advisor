@@ -31,7 +31,6 @@ export default function RestaurantContainer({ latLng, city }) {
   // --- Get Restaurants from Foursquare API + Update State ---
 
   useEffect(() => {
-    console.log("RestaurantContainer useEffect");
     if (latLng === undefined) return;
 
     fetchInterestCategory(latLng, restaurantsCategoryId, limit)

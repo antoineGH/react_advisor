@@ -9,7 +9,6 @@ export default function Home() {
   const recentSearches = getLocalStorage("historyDestination");
 
   useEffect(() => {
-    console.log("Home useEffect");
     let mount = true;
     if (recentSearches) {
       if (mount) {

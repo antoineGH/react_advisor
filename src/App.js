@@ -15,7 +15,7 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <Router>
+      <Router basename="/advisor">
         <Navigation />
         <Switch>
           <Route path="/" exact component={Home} />

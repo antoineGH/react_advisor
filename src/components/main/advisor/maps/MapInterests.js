@@ -14,7 +14,6 @@ export default function MapContainer() {
   const history = useHistory();
 
   useEffect(() => {
-    console.log("MapContainer useEffect");
     if (_.get(location, "state.latLng")) {
       setLatLng(location.state.latLng);
       setInterests(location.state.interests);

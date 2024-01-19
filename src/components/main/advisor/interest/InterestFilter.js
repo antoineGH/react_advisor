@@ -29,7 +29,6 @@ export default function InterestsFilter() {
   let location = useLocation();
 
   useEffect(() => {
-    console.log("InterestsFilter useEffect 1");
     if (!location) return;
     let mount = true;
     if (_.get(location, "state.latLng")) {
@@ -71,7 +70,6 @@ export default function InterestsFilter() {
   }, [latLng, location, history]);
 
   useEffect(() => {
-    console.log("InterestsFilter useEffect 2");
     if (categories === null || !location) return;
     categories.forEach((category) => {
       if (category.categoryName === myCategory) {
@@ -116,8 +114,6 @@ export default function InterestsFilter() {
       fetchInterestCategory(location.state.latLng, location.state.categoryID, 5)
         .then((response) => {
           if (mount) {
-            console.log(response);
-            console.log(typeof response);
             setMoreInterests(response);
             setIsLoaded(true);
             setHasError(false);

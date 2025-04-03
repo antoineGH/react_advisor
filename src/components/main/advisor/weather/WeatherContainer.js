@@ -39,8 +39,27 @@ export default function WeatherContainer({ country, state, latLng, details }) {
 
     fetchWeather(lat, lng)
       .then((response) => {
-        setCurrent(response.current);
-        setDaily(response.daily);
+        console.log(response);
+        // Adjusting to new API structure
+        const currentWeather = {
+          dt: response.list[0].dt,
+          temp: response.list[0].main.temp,
+          weather: response.list[0].weather,
+          humidity: response.list[0].main.humidity,
+          clouds: response.list[0].clouds.all,
+          wind_speed: response.list[0].wind.speed,
+        };
+        const dailyForecast = response.list.filter((_, index) => index % 8 === 0).map((item) => ({
+          dt: item.dt,
+          temp: {
+            min: item.main.temp_min,
+            max: item.main.temp_max,
+          },
+          weather: item.weather,
+        }));
+
+        setCurrent(currentWeather);
+        setDaily(dailyForecast);
         setIsLoaded(true);
         setHasError(false);
       })
@@ -60,8 +79,26 @@ export default function WeatherContainer({ country, state, latLng, details }) {
     setTimeout(() => {
       fetchWeather(lat, lng)
         .then((response) => {
-          setCurrent(response.current);
-          setDaily(response.daily);
+          // Adjusting to new API structure
+          const currentWeather = {
+            dt: response.list[0].dt,
+            temp: response.list[0].main.temp,
+            weather: response.list[0].weather,
+            humidity: response.list[0].main.humidity,
+            clouds: response.list[0].clouds.all,
+            wind_speed: response.list[0].wind.speed,
+          };
+          const dailyForecast = response.list.filter((_, index) => index % 8 === 0).map((item) => ({
+            dt: item.dt,
+            temp: {
+              min: item.main.temp_min,
+              max: item.main.temp_max,
+            },
+            weather: item.weather,
+          }));
+
+          setCurrent(currentWeather);
+          setDaily(dailyForecast);
           setIsLoaded(true);
           setHasError(false);
         })

@@ -1,4 +1,4 @@
-const weatherURL = 'https://api.openweathermap.org/data/2.5/onecall'
+const weatherURL = 'https://api.openweathermap.org/data/2.5/forecast'
 const openWeatherKey = process.env.REACT_APP_OPENWEATHER_API_KEY
 
 export default async function fetchWeather(lat, lng) {
